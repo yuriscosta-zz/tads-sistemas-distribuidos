@@ -12,7 +12,8 @@ import java.rmi.RemoteException;
  *
  * @author yuri
  */
-public interface Calculator extends Remote {
-
-    public long add(long a, long b) throws RemoteException;
+public interface Service extends Remote {
+    
+    public String getDateTime() throws RemoteException;
+    public String reverseString(String string) throws RemoteException;
 }

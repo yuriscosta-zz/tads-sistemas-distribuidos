@@ -6,30 +6,45 @@
 package rmi;
 
 import java.net.MalformedURLException;
-import java.rmi.AlreadyBoundException;
 import java.rmi.Naming;
-import java.rmi.Remote;
 import java.rmi.RemoteException;
-import java.rmi.registry.LocateRegistry;
+import java.rmi.server.UnicastRemoteObject;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  *
  * @author yuri
  */
-public class Server {
+public class Server extends UnicastRemoteObject implements Service {
 
-    public Server() {
-        try {
-            System.setProperty("java.rmi.server.hostname", "192.168.0.14");
-            LocateRegistry.createRegistry(1099);
-            Calculator c = new CalculatorImple();
-            Naming.bind("CalculatorService", (Remote) c);
-        } catch (MalformedURLException | AlreadyBoundException | RemoteException e) {
-            System.out.println(e);
-        }
+    public Server() throws RemoteException {
+        super();
     }
-    
-    public static void main(String[] args) {
-        new Server();
+
+    @Override
+    public String getDateTime() throws RemoteException {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        return sdf.format(Calendar.getInstance().getTime());
+    }
+
+    @Override
+    public String reverseString(String string) throws RemoteException {
+        String str = "";
+        StringBuilder strb = new StringBuilder(string);
+        str = strb.reverse().toString();
+        return str;
+    }
+
+    public static void main(String[] args) throws RemoteException, MalformedURLException {
+        try {
+            Server server = new Server();
+            String location = "//localhost/service";
+            Naming.rebind(location, server);
+        } catch (MalformedURLException e) {
+            System.out.println("Error - Malformed URL: " + e.getMessage());
+        } catch (RemoteException ex) {
+            System.out.println("Error: " + ex.getMessage());
+        }
     }
 }
