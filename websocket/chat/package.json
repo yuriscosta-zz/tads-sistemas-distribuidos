@@ -1,0 +1,21 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "A simple chat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/yuriscosta/tads-sistemas-distribuidos"
+  },
+  "author": "Yuri Sales",
+  "license": "ISC",
+  "dependencies": {
+    "ws": "^3.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.32"
+  }
+}
