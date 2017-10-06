@@ -10,4 +10,5 @@ async def hello():
         greeting = await websocket.recv()
         print("< {}".format(greeting))
 
-asyncio.get_event_loop().run_until_complete(hello())
+if __name__ == '__main__':
+    asyncio.get_event_loop().run_until_complete(hello())
