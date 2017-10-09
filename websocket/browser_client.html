@@ -7,29 +7,16 @@
     </head>
     <body>
         <script>
-            let exampleSocket = new WebSocket("ws://localhost:2345");
-            
-            exampleSocket.onopen = function (event) {
-                exampleSocket.send("Can you hear me?")
-            };
-            
+            let exampleSocket = new WebSocket("ws://localhost:5678"),
+                messages = document.createElement("ul");
             exampleSocket.onmessage = function (event) {
-                console.log(event.data);
-            };
-        </script>
-        <!--
-        <script>
-            var ws = new WebSocket("ws://localhost:5678/"),
-                messages = document.createElement('ul');
-            ws.onmessage = function (event) {
-                var messages = document.getElementsByTagName('ul')[0],
+                let messages = document.getElementsByTagName("ul")[0],
                     message = document.createElement('li'),
                     content = document.createTextNode(event.data);
-                message.appendChild(content);
+                messages.appendChild(content);
                 messages.appendChild(message);
-            };
+            }            
             document.body.appendChild(messages);
         </script>
-        -->
     </body>
 </html>

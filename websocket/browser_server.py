@@ -9,5 +9,5 @@ async def time(websocket, path):
         await websocket.send(now)
         await asyncio.sleep(random.random() * 3)
 
-start_server = websockets.serve(time, '127.0.0.1', 5678)
+start_server = websockets.serve(time, 'localhost', 5678)
 asyncio.get_event_loop().run_forever()
