@@ -1,6 +1,6 @@
 # Mom
 
-**TODO: Add description**
+A simple 'Hello, World' application using RabbitMQ and Elixir.
 
 ## Installation
 
