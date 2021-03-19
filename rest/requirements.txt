@@ -6,7 +6,7 @@ Django==1.8.7
 first==2.0.1
 Flask==0.12.2
 itsdangerous==0.24
-Jinja2==2.9.6
+Jinja2==2.11.3
 lazy-object-proxy==1.2.1
 MarkupSafe==1.0
 pew==0.1.26
