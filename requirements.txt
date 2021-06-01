@@ -4,5 +4,5 @@ idna==2.6
 json-rpc==1.10.3
 jsonrpclib==0.1.7
 requests==2.18.4
-urllib3==1.22
+urllib3==1.26.5
 websockets==3.4
